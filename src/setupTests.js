@@ -1,1 +1,1 @@
-import '@testing-library/jest-dom/extend-expect';
+// No jest-dom setup needed
