@@ -10,7 +10,8 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:4000/questions")
       .then(r => r.json())
-      .then(setQuestions);
+      .then(setQuestions)
+      .catch(err => console.error("Error fetching questions:", err));
   }, []);
 
   function addQuestion(newQuestion) {

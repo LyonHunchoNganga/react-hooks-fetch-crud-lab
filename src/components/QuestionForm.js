@@ -31,7 +31,17 @@ function QuestionForm(props) {
       body: JSON.stringify(questionData)
     })
     .then(r => r.json())
-    .then(props.onAddQuestion);
+    .then(newQuestion => {
+      props.onAddQuestion(newQuestion);
+      setFormData({
+        prompt: "",
+        answer1: "",
+        answer2: "",
+        answer3: "",
+        answer4: "",
+        correctIndex: 0,
+      });
+    });
   }
 
   return (
