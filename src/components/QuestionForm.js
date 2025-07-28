@@ -19,6 +19,12 @@ function QuestionForm(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
+    
+    if (!formData.prompt || !formData.answer1 || !formData.answer2) {
+      alert('Please fill in at least the prompt and first two answers');
+      return;
+    }
+    
     const questionData = {
       prompt: formData.prompt,
       answers: [formData.answer1, formData.answer2, formData.answer3, formData.answer4],
@@ -41,6 +47,9 @@ function QuestionForm(props) {
         answer4: "",
         correctIndex: 0,
       });
+    })
+    .catch(error => {
+      console.error('Error adding question:', error);
     });
   }
 
